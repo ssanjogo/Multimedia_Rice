@@ -1,6 +1,7 @@
 from RiceFunctions import riceFunctions as rice
 
 def main():
+    print(rice.calculNaturalBinaryBits(1023, 32))
     print("Bits required to encode in a natural binary, the values from -1023 to 1023:", bitsNeedToCodify(-1023, 1023), "bits.")
 
     encodedRice = rice.encodeRice(256, 578)
@@ -16,6 +17,8 @@ def main():
         print("Number:", num, "Encoded number:", encodedNum)
 
     print("List of the numbers that require less bits with the rice codification than with the natural binary codification:", checkBits(listEncodedRice))
+
+
 def bitsNeedToCodify(fNum, sNum):
     '''
     Method to calculate the number ob bits necessary to encode all the numbers between a 

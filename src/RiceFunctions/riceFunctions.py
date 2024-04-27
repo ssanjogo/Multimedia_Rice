@@ -81,7 +81,7 @@ def calculNaturalBinaryBits(num, M = -1):
     binaryNum = bin(num)                                                        # Convert the number to binary. 
 
     if (M != -1):                                                               # Check if we want to have a specific number of bits
-        zerosToAdd = M - len(binaryNum[2:])                                     # Calculate the number of zeros that we have to add.
+        zerosToAdd = int(math.log(M, 2)) - len(binaryNum[2:])                   # Calculate the number of zeros that we have to add.
         for _ in range(zerosToAdd):                                             # Iterate through the zeros.
             bitsNaturalBinary += "0"                                            # Add the zeros to te result.
         bitsNaturalBinary += binaryNum[2:]                                      # Add the codification. 
