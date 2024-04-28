@@ -94,9 +94,9 @@ def bitsNeedToCodify(fNum, sNum):
     '''
 
     if (abs(fNum) >= abs(sNum)):                                    # Check if the absolute value of the first number is bigger or equal than the absolute value of the second number.   
-        nBits = len(rice.calculNaturalBinaryBits(fNum)) + 1         # If the first number is bigger we calculate the number of bits of the value + 1 (the sign + or -)
+        nBits = len(rice.calculNaturalBinaryBits(fNum))          # If the first number is bigger we calculate the number of bits of the value + 1 (the sign + or -)
     else:                                                           # Check if the absolute value of the second number is smaller than the first one. 
-        nBits = len(rice.calculNaturalBinaryBits(sNum)) + 1         # Calculate the number of bits of the second number + 1 (the sign + or -)
+        nBits = len(rice.calculNaturalBinaryBits(sNum))        # Calculate the number of bits of the second number + 1 (the sign + or -)
     
     return nBits
     
