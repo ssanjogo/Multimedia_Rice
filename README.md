@@ -98,7 +98,8 @@ The M that has a maximal difference of 6 is: M = 8.
 We can see how  the optimal input range in this case is [-64,64].
 
 
-f) Conclusions:
+### Conclusions:
+
 It is important to know what we are going to code and how we want to do it. Knowing the frequencies of our values can help us to optimize a lot.
 
 The Rice coding algorithm (also known as Golomb-Rice coding) is intended to encode many numbers close to 0 while preserving large numbers. Although it is mainly used in audio coding, it is very interesting for other cases, such as sensors.
