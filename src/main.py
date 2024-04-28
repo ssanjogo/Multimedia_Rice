@@ -6,22 +6,20 @@ def main():
     print(rice.calculNaturalBinaryBits(1023, 32))
     print("Bits required to encode in a natural binary, the values from -1023 to 1023:", bitsNeedToCodify(-1023, 1023), "bits.")
 
-    encodedRice = rice.encodeRice(256, 578)
-    decodedRice = rice.decodeRice(encodedRice, 256)
+    # encodedRice = rice.encodeRice(256, 578)
+    # decodedRice = rice.decodeRice(encodedRice, 256)
 
-    print("Example with M = 256 and N = 578 for encode with Rice algorithm:", encodedRice)
-    print("Example with M = 256 and encodedNumber =", encodedRice, " for decode with Rice algorithm:", decodedRice)
+    # print("Example with M = 256 and N = 578 for encode with Rice algorithm:", encodedRice)
+    # print("Example with M = 256 and encodedNumber =", encodedRice, " for decode with Rice algorithm:", decodedRice)
 
-    encodedRice = rice.encodeRice(32, 32)
-    decodedRice = rice.decodeRice(encodedRice, 32)
+    # encodedRice = rice.encodeRice(32, 32)
+    # decodedRice = rice.decodeRice(encodedRice, 32)
 
-    print("Example with M = 256 and N = 578 for encode with Rice algorithm:", encodedRice)
-    print("Example with M = 256 and encodedNumber =", encodedRice, " for decode with Rice algorithm:", decodedRice)
+    # print("Example with M = 32 and N = 32 for encode with Rice algorithm:", encodedRice)
+    # print("Example with M = 32 and encodedNumber =", encodedRice, " for decode with Rice algorithm:", decodedRice)
     
     print("############## B ##############")
-
     listEncodedRice = calculateRiceEncodedRange(-1023, 1023, 32)
-
     # print("List of the number from -1023 to 1023 encoded with the algorithm Rice: ")
     # for (num, encodedNum) in listEncodedRice[1::]:
     #     print("Number:", num, "Encoded number:", encodedNum)
@@ -39,8 +37,8 @@ def main():
     print("Difference between the natural binary codification and the Rice codification for the number", minimal_value, "is:", maximal_difference, "bits.")
     print("This makes sense since it must always use the residue bits, and in change it does not use any quotient bits. That is why all values below M will always be the best encoded. However, we will not always save bits. This depends on the bits used before encoding and the M used.")
     print("\n")
+
     print("############## D ##############")
-    
     print("We search between 64, 128 and 256 to see which one is the best for the range -256 to 256. that's because we already know that 32 doesn't work well for more than 128")
     values= [64,128,256]
     best_M = float('inf')
@@ -75,10 +73,6 @@ def main():
     print("The best M for the E which has a maximal difference of 6 is:", best_M)
     barPlot([num for (num, encodedNum) in best_encoded[1::]], [len(encodedNum) for (num, encodedNum) in best_encoded[1::]], len(rice.calculNaturalBinaryBits(1023)), "Number of bits to encode with Rice algorithm", "Number", "Number of bits")
     print("As we can see, the optimal input range is [-64,64]")
-
-
-
-
 
 
 def bitsNeedToCodify(fNum, sNum):
