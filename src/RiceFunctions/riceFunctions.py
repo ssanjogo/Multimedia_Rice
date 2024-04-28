@@ -20,15 +20,18 @@ def encodeRice(M, num):
     else:                                                                       # If the number is smaller than 0, a negative number. 
         sign = 0                                                                # We establish the sign number as 0. 
 
-    quotient = int(abs(num)/M)                                                  # Calculate the quotient. 
+    quotient = int(abs(num)/M)                                                  # Calculate the quotient.
+     
     remainder = (abs(num) % M)                                                  # Calculate the remainder. 
-    result += str(sign)                                                         # We insert the sign to the result. 
+    result += str(sign)                                                         # We insert the sign to the result.
+   
 
     for _ in range(quotient):                                                   # Iterate in the quotient range.
         result += "1"                                                           # We add as much 1's as the number of the quotient.
     
     result += "0"                                                               # Add a final 0 to the codification of the quotient.
-    result += calculNaturalBinaryBits(remainder, int(math.log(M, 2)))           # Add the remainder to the result of the codification.
+    result += calculNaturalBinaryBits(remainder, M)[1:]                         # Add the remainder to the result of the codification.
+    
 
     return result
 
@@ -73,10 +76,13 @@ def calculNaturalBinaryBits(num, M = -1):
     Returns:
         - string: natural binary string of the number.    
     '''
-    bitsNaturalBinary = ""
+    
 
-    if (num < 0):                                                               # Check if the number is negative.
-        num *= -1                                                               # If so, we multiply it by - 1, to converti it to a positive value. 
+    if (num < 0):
+        bitsNaturalBinary = "0"                                                               # Check if the number is negative.
+        num *= -1                                                            # If so, we multiply it by - 1, to convert it to a positive value.
+    else:
+        bitsNaturalBinary = "1" 
 
     binaryNum = bin(num)                                                        # Convert the number to binary. 
 
@@ -86,9 +92,9 @@ def calculNaturalBinaryBits(num, M = -1):
             bitsNaturalBinary += "0"                                            # Add the zeros to te result.
         bitsNaturalBinary += binaryNum[2:]                                      # Add the codification. 
     else:                                                                       # Otherwise,
-        bitsNaturalBinary = binaryNum[2:]                                       # Return the necessary bits for representing the natural binary. 
+        bitsNaturalBinary += binaryNum[2:]                                       # Return the necessary bits for representing the natural binary. 
 
-    return bitsNaturalBinary                                                    # Return the natural binary string of the number.
+    return bitsNaturalBinary                                                   # Return the natural binary string of the number.
 
 
 def calculateDecimalNumber(binaryNum):
