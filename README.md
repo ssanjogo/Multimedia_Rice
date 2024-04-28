@@ -52,11 +52,11 @@ When you run the serve, you will get the web page address on the command line, s
 ## Resolution
 a) How many bits are needed to encode all integers between -1023 and +1023 (in natural binary encoding with a sign bit)?
 
-    We need at least 11bits, 10 for the number representation plus one for the sign
+We need at least 11 bits, 10 for the number representation plus one for the sign. 
 
 b) Calculate the Rice code for all integers N between -1023 and +1023 with M = 32.
 
-    Executing the code we can see this result.
+Executing the code we can see this result.
     
 ![plot](./plots/plot_C.png)
 
@@ -93,9 +93,15 @@ e) What is the largest value of M that allows achieving a maximum savings of up 
     For M = 256 the maximal difference is: 1 bits. Minimal value: -255
 
 
-    The M that has a maximal difference of 6 is: M = 8. 
+The M that has a maximal difference of 6 is: M = 8. 
 ![plot](./plots/plot_E.png)
-    We can see how  the optimal input range in this case is [-64,64].
+We can see how  the optimal input range in this case is [-64,64].
+
+
+f) Conclusions:
+It is important to know what we are going to code and how we want to do it. Knowing the frequencies of our values can help us to optimize a lot.
+
+The Rice coding algorithm (also known as Golomb-Rice coding) is intended to encode many numbers close to 0 while preserving large numbers. Although it is mainly used in audio coding, it is very interesting for other cases, such as sensors.
 
 
 
